@@ -16,15 +16,6 @@ using namespace std;
 
 #if RANDOM_FILL
 const unsigned start_point = 0, BOX_SIZE = 5, TOPS = BOX_SIZE*BOX_SIZE, end_point = TOPS - 1, max_arc_length = 9;
-#if UNORDERED_MAP
-namespace std {
-	template<> struct hash<pair<unsigned, unsigned>> {
-		size_t operator()(const pair<unsigned, unsigned>& n) const {
-			return hash<unsigned>()(n.first | n.second << 16);
-		}
-	};
-}
-#endif
 #else
 const unsigned ARCS = 11, TOPS = 6, start_point = 0, end_point = 5;
 unsigned ini_arcs[ARCS][3] = /* start, end, length */
@@ -39,6 +30,16 @@ unsigned ini_arcs[ARCS][3] = /* start, end, length */
        {4,5,1},
        {4,6,10},
        {5,6,3}};
+#endif
+
+#if UNORDERED_MAP
+namespace std {
+	template<> struct hash<pair<unsigned, unsigned>> {
+		size_t operator()(const pair<unsigned, unsigned>& n) const {
+			return hash<unsigned>()(n.first | n.second << 16);
+		}
+	};
+}
 #endif
 
 set<unsigned> S;
