@@ -1,5 +1,5 @@
 # dijkstra-algorithm-programs
-Dijkstra's algorithm for finding the shortest paths implementation.
+Dijkstra's algorithm for finding the shortest route implementations.
 
 These programs find the shortest path between two nodes in a graph.  They realize the classical Dijkstra's algorithm without any optimizations.  This algorithm can be described as a five step process.
 
