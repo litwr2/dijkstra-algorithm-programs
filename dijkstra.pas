@@ -82,7 +82,7 @@ begin
       end;
       for i := min_point to max_point do        (* Step 5 *)
          if i in S then begin
-            l := lengths[i][j];
+            l := lengths[j][i];
             if l >= 0 then begin
                l := D[j] + l;
                if (D[i] < 0) or (D[i] > l) then begin

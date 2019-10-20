@@ -1,6 +1,6 @@
-#define RANDOM_FILL 1
-#define PRINT_BOX 1
-#define UNORDERED_MAP 1
+#define RANDOM_FILL 0
+#define PRINT_BOX 0
+#define UNORDERED_MAP 0
 
 #include <iostream>
 #include <iomanip>
@@ -94,9 +94,9 @@ void fill_sets() {
 		v1 = ini_arcs[i][0] - 1;
 		v2 = ini_arcs[i][1] - 1;
 		S.insert(v1);
-                S.insert(v2);
+		S.insert(v2);
 		lengths[make_pair(v1, v2)] = ini_arcs[i][2];
-		lengths[make_pair(v2, v1)] = ini_arcs[i][2];
+		//lengths[make_pair(v2, v1)] = ini_arcs[i][2];
 	}
 }
 #endif
@@ -139,7 +139,7 @@ int main() {
 			return 0;
 		}
 		for (auto i: S)				//Step 5
-			if ((p = lengths.find(make_pair(i, j))) != lengths.end()) {
+			if ((p = lengths.find(make_pair(j, i))) != lengths.end()) {
 				l = p->second + D[j];
 				if (D[i] > l) {
 					D[i] = l;

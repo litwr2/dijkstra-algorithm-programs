@@ -1,4 +1,4 @@
-#define RANDOM_FILL 1
+#define RANDOM_FILL 0
 #define PRINT_BOX 0
 
 #include <iostream>
@@ -80,9 +80,9 @@ void fill_sets() {
 		v1 = ini_arcs[i][0] - 1;
 		v2 = ini_arcs[i][1] - 1;
 		S.insert(v1);
-                S.insert(v2);
+		S.insert(v2);
 		lengths[v1][v2] = ini_arcs[i][2];
-		lengths[v2][v1] = ini_arcs[i][2];
+		//lengths[v2][v1] = ini_arcs[i][2];
 	}
 }
 #endif
@@ -122,7 +122,7 @@ int main() {
 			return 0;
 		}
 		for (auto i: S)				//Step 5
-			if ((l = lengths[i][j]) != UINT_MAX) {
+			if ((l = lengths[j][i]) != UINT_MAX) {
 				l += D[j];
 				if (D[i] > l) {
 					D[i] = l;
