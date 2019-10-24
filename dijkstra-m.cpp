@@ -122,7 +122,8 @@ int main() {
 #else
 	fill_sets();
 #endif
-	D[start_point] = 0;				//Step 1
+	D[start_point] = 0;
+	S.erase(start_point);			//Step 1
 	for (auto i: S) {				//Step 2
 		if ((p = lengths.find(make_pair(start_point, i))) != lengths.end())
 			D[i] = p->second;

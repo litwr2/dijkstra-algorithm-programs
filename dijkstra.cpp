@@ -108,7 +108,8 @@ int main() {
 #else
 	fill_sets();
 #endif
-	D[start_point] = 0;				//Step 1
+	D[start_point] = 0;
+	S.erase(start_point);			//Step 1
 	for (auto i: S) {				//Step 2
 		D[i] = lengths[start_point][i];
 		path[i] = to_string(start_point) + "-" + to_string(i);
